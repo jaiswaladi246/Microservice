@@ -29,7 +29,7 @@ IAMFullAccess
 ```
 Attach this policy to your user as well
 
-![Policies To Attach](https://github.com/jaiswaladi246/EKS-Complete/blob/main/Policies.png)
+![Policies To Attach](https://github.com/jaiswaladi246/Microservice/blob/Infra-Steps/Policies.png)
 
 # AWSCLI
 
