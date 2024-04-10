@@ -1,8 +1,15 @@
 pipeline {
     agent any
 
+    options {
+        timeout(time: 30, unit: 'MINUTES') // Increase timeout for the entire pipeline
+    }
+
     stages {
         stage('Build & Tag Docker Image') {
+            options {
+                timeout(time: 10, unit: 'MINUTES') // Increase timeout for this stage
+            }
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker') {
@@ -13,6 +20,9 @@ pipeline {
         }
         
         stage('Push Docker Image') {
+            options {
+                timeout(time: 10, unit: 'MINUTES') // Increase timeout for this stage
+            }
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker') {
