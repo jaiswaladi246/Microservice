@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         DOCKER_REGISTRY = 'docker.io'
-        DOCKER_CREDENTIALS = 'docker-token'
-        IMAGE_TAG = 'latest'
+        DOCKER_CREDENTIALS = 'docker-cred'
+        
     }
 
     stages {
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
-                        sh "docker build -t chakri2431/microservice/adservice:${env.IMAGE_TAG} ."
+                        sh "docker build -t chakri2431/microservice:my-adservice ."
                     }
                 }
             }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
-                        sh "docker push chakri2431/microservice/adservice:${env.IMAGE_TAG}"
+                        sh "docker push chakri2431/microservice:my-adservice"
                     }
                 }
             }
