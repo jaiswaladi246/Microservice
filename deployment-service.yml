@@ -28,7 +28,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: adijaiswal/emailservice:latest
+        image: rohithreddy10/emailservice:latest
         ports:
         - containerPort: 8080
         env:
@@ -81,7 +81,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: adijaiswal/checkoutservice:latest
+          image: rohithreddy10/checkoutservice:latest
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -143,7 +143,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/recommendationservice:latest
+        image: rohithreddy10/recommendationservice:latest
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -200,7 +200,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: adijaiswal/frontend:latest
+          image: rohithreddy10/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -297,7 +297,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/paymentservice:latest
+        image: rohithreddy10/paymentservice:latest
         ports:
         - containerPort: 50051
         env:
@@ -349,7 +349,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/productcatalogservice:latest
+        image: rohithreddy10/productcatalogservice:latest
         ports:
         - containerPort: 3550
         env:
@@ -401,7 +401,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/cartservice:latest
+        image: rohithreddy10/cartservice:latest
         ports:
         - containerPort: 7070
         env:
@@ -465,7 +465,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: adijaiswal/loadgenerator:latest
+        image: rohithreddy10/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -496,7 +496,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/currencyservice:latest
+        image: rohithreddy10/currencyservice:latest
         ports:
         - name: grpc
           containerPort: 7000
@@ -548,7 +548,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: adijaiswal/shippingservice:latest
+        image: rohithreddy10/shippingservice:latest
         ports:
         - containerPort: 50051
         env:
@@ -654,7 +654,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: adijaiswal/adservice:latest
+        image: rohithreddy10/adservice:latest
         ports:
         - containerPort: 9555
         env:
