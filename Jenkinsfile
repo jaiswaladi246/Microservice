@@ -1,6 +1,22 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials'
+    }
+    stages {
+        stage('Build & Tag Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
+                        def app = docker.build("my-image:${env.BUILD_ID}")
+                        app.push()
+                    }
+                }
+            }
+        }
+    }
+
     stages {
         stage('Deploy To Kubernetes') {
             steps {
@@ -18,5 +34,6 @@ pipeline {
                 }
             }
         }
+        
     }
 }
