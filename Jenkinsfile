@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -6,17 +7,17 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/paymentservice:latest ."
+                        sh 'docker build -t mohamedsadiq9741/paymentservice:latest .'
                     }
                 }
             }
         }
-        
+
         stage('Push Docker Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push adijaiswal/paymentservice:latest "
+                        sh 'docker push mohamedsadiq9741/paymentservice:latest'
                     }
                 }
             }
