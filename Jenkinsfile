@@ -6,17 +6,17 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/adservice:latest ."
+                        sh 'docker build -t mohamedsadiq9741/adservice:latest .'
                     }
                 }
             }
         }
-        
+
         stage('Push Docker Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push adijaiswal/adservice:latest "
+                        sh 'docker push mohamedsadiq9741/adservice:latest'
                     }
                 }
             }
